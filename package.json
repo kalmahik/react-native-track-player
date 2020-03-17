@@ -50,7 +50,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/react-native-kit/react-native-track-player.git"
+    "url": "https://github.com/kalmahik/react-native-track-player.git"
   },
   "bugs": {
     "url": "https://github.com/react-native-kit/react-native-track-player/issues"
