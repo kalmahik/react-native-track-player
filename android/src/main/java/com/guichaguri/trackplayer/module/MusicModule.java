@@ -18,6 +18,7 @@ import com.guichaguri.trackplayer.service.Utils;
 import com.guichaguri.trackplayer.service.models.NowPlayingMetadata;
 import com.guichaguri.trackplayer.service.models.Track;
 import com.guichaguri.trackplayer.service.player.ExoPlayback;
+import android.os.Build;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -105,6 +106,11 @@ public class MusicModule extends ReactContextBaseJavaModule implements ServiceCo
         // Binds the service to get a MediaWrapper instance
         Intent intent = new Intent(context, MusicService.class);
         context.startService(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            context.startForegroundService(intent);
+        } else {
+            context.startService(intent);
+        }
         intent.setAction(Utils.CONNECT_INTENT);
         context.bindService(intent, this, 0);
 
